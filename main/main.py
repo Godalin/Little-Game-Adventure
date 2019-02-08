@@ -8,8 +8,7 @@ Created on 2019.02.03
 '''
 
 
-from place import chess_board as c_b
-import process_function as p_f
+import process_function as p_f_
 import sys
 
 
@@ -19,5 +18,5 @@ condition = None
 
 #main loop
 while True :
-    condition = p_f.printInterface('index')
-    p_f.getIndexChoice()
+    condition = p_f_.printInterface('index')
+    p_f_.getIndexChoice()

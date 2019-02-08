@@ -2,23 +2,18 @@
 
 
 '''
-Created on 2019.02.03
+Created on 2019.02.08
 
 @author: Godalin
+
 '''
 
 
-import time, os
-from place import chess_board as c_b
-import process_function as p_f
+import os
 
-
-def setMainLand() : #生成主世界
-    
-    main_land = c_b.ChessBoard()
-    main_land.getNewBoard()
-    return main_land.getChessBoardData()
-
+sep = os.path.sep
+pwd = os.getcwd()
+fwd = os.path.abspath(os.path.dirname(pwd) + sep + ".")
 
 def newWorld() : #创建新世界
     
@@ -30,16 +25,12 @@ def newWorld() : #创建新世界
     while True :
         
         #设置路径
-        target_path = (os.getcwd()
-                       +os.path.sep
-                       +'saves'
-                       +os.path.sep
-                       +'{}'.format(name))
+        world_name_path = (pwd+sep+'saves'+sep+'{}'.format(name))
         
         #不存在
-        if not os.path.exists(target_path) :
+        if not os.path.exists(world_name_path) :
             
-            os.makedirs(target_path)
+            os.makedirs(world_name_path)
             
             #生成主世界
             main_land = setMainLand()
@@ -109,5 +100,3 @@ def newWorld() : #创建新世界
             elif p_f.askYesOrNo("add a '_'") : #加_
                 name += '_'
                 continue
-            
-            
