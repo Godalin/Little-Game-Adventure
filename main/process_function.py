@@ -9,13 +9,18 @@ Created on 2019.02.02
 
 
 import time, os, sys
-from pkg_game_function_set import *
 
 
 #定义常量
 int_Ten = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
 sep = os.path.sep
 cwd = os.getcwd()
+
+
+sys.path.append('game_function_set' + sep)
+
+
+import game_new_world
 
 
 def getPlayerInput() :#获取玩家键入
@@ -134,6 +139,4 @@ def getIndexChoice() : #主页选项
                 time.sleep(1)
                 print()
                 print('You did not make a choose .')
-                continue
-                
-    
+                continue 

@@ -9,11 +9,13 @@ Created on 2019.02.08
 '''
 
 
-import os
+import os, sys
+import game_main_land_function as gml_f
 
 sep = os.path.sep
-pwd = os.getcwd()
-fwd = os.path.abspath(os.path.dirname(pwd) + sep + ".")
+cwd = os.getcwd()
+fwd = os.path.abspath(os.path.dirname(cwd) + sep + ".")
+
 
 def newWorld() : #创建新世界
     
@@ -33,7 +35,7 @@ def newWorld() : #创建新世界
             os.makedirs(world_name_path)
             
             #生成主世界
-            main_land = setMainLand()
+            main_land = gml_f.setMainLand()
             main_land_path = (target_path
                          +os.path.sep
                          +'main_land') 
