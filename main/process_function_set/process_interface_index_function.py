@@ -21,6 +21,10 @@ sys.path.append(fwd + sep + 'game_function_set' + sep)
 
 import game_new_world
 
+sys.path.append(cwd + sep)
+
+import process_interface_chooseFile_function as pic_f
+
 
 def printIndex() : #打印主界面
     with open(index, 'r') as Index :
@@ -59,7 +63,7 @@ def getIndexChoice() : #主页选项
                 
                 #choose file
                 elif choice == 2 :
-                    pass
+                    pic_f.printFileChoose()
                     break
                 
                 #exit
