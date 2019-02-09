@@ -9,18 +9,11 @@ Created on 2019.02.02
 
 
 import time, os, sys
+from game_function_set import game_new_world
 
 
 #定义常量
 int_Ten = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
-sep = os.path.sep
-cwd = os.getcwd()
-
-
-sys.path.append(cwd + sep + 'game_function_set' + sep)
-
-
-import game_new_world
 
 
 def getPlayerInputYoN() :#获取玩家键入
@@ -35,6 +28,7 @@ def getPlayerInputYoN() :#获取玩家键入
             return True
         elif answer.lower() in {'n', 'no'} :
             return False
+        #not y or n
         else :
             print()
             print('Not an answer .')

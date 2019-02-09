@@ -9,7 +9,7 @@ Created on 2019.02.08
 
 import os, sys
 
-cwd = os.getcwd()
+cwd = os.path.split(os.path.realpath(__file__))[0]
 sep = os.path.sep
 
 sys.path.append(cwd)

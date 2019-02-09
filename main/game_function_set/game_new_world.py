@@ -12,16 +12,16 @@ Created on 2019.02.08
 import os, sys, time
 
 sep = os.path.sep
-cwd = os.getcwd()
+cwd = os.path.split(os.path.realpath(__file__))[0]
+fwd = os.path.abspath(os.path.dirname(cwd) + sep + '.')
 
-sys.path.append(cwd + sep +'game_function_set' + sep)
+sys.path.append(fwd)
+import process_function as pcs_f
 
-
+sys.path.append(cwd)
 import game_main_land_function as gml_f
 import game_save_file_function as gsf_f
 
-
-import process_function as pcs_f
 
 
 def isIncludeSep(word) : #判断/\.
@@ -65,7 +65,7 @@ def newWorld() : #创建新世界
     while True :
         
         #设置（重置）世界路径
-        world_path = ('..' + sep + 'save' + sep + '{}'.format(name))
+        world_path = ('.' + sep + 'save' + sep + '{}'.format(name))
         
         
         #不存在

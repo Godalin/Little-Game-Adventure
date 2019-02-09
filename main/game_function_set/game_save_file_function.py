@@ -13,14 +13,16 @@ import os
 
 #定义常量
 sep = os.path.sep
-cwd = os.getcwd()
-ffwd = os.path.abspath(os.path.dirname(cwd) + sep + "..")
-    
+cwd = os.path.split(os.path.realpath(__file__))[0]
+ffwd = os.path.abspath(os.path.dirname(cwd) + sep +'..')
+
+
 #定义save路径
 save_path = ffwd + sep + 'save'
 
 
 def setSave() :
+    
     
     #判断是否存在
     def isSaveExist() :

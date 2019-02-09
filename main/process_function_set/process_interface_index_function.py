@@ -10,15 +10,16 @@ Created on 2019.02.09
 
 import time, os, sys
 
-cwd = os.getcwd()
 sep = os.path.sep
+cwd = os.path.split(os.path.realpath(__file__))[0]
+fwd = os.path.abspath(os.path.dirname(cwd) + sep + '.')
 
-interface_path = cwd + sep + 'process_function_set' + sep + 'player_interface' + sep
+interface_path = cwd + sep + 'player_interface' + sep
 index = interface_path + 'index'
 
-sys.path.append(cwd)
+sys.path.append(fwd + sep + 'game_function_set' + sep)
 
-from game_function_set import game_new_world
+import game_new_world
 
 
 def printIndex() : #打印主界面
