@@ -99,4 +99,6 @@ class MainLandBlock :
                 imlbd += self.__imlb[line][row]
             imlbd += '\n'
             
-        return {'i':icb[:], 'o':ocb[:]}
+        return {'i':imlbd[:], 'o':omlbd[:]}
+    
+    

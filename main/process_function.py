@@ -17,7 +17,7 @@ sep = os.path.sep
 cwd = os.getcwd()
 
 
-sys.path.append('game_function_set' + sep)
+sys.path.append(cwd + sep + 'game_function_set' + sep)
 
 
 import game_new_world
