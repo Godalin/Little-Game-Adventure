@@ -23,22 +23,25 @@ sys.path.append(cwd + sep + 'game_function_set' + sep)
 import game_new_world
 
 
-def getPlayerInput() :#获取玩家键入
+def getPlayerInputYoN() :#获取玩家键入
     
-    print()
-    answer = input()
-    
-    #y or n
-    if answer.lower() in {'y', 'yes'} :
-        return True
-    elif answer.lower() in {'n', 'no'} :
-        return False
+    while True :
         
-    #get point
-    else :
-        aw_lt = list(answer)
-        if (len(aw_lt) == 3) and (aw_lt[1] == ',') :
-            return [int(aw_lt[0]), int(aw_lt[2])]
+        print()
+        answer = input()
+    
+        #y or n
+        if answer.lower() in {'y', 'yes'} :
+            return True
+        elif answer.lower() in {'n', 'no'} :
+            return False
+        else :
+            print()
+            print('Not an answer .')
+            time.sleep(1)
+            print()
+            print('Please answer once more .')
+            continue
         
 
 def expressPity() : #表达遗憾
@@ -79,7 +82,7 @@ def askYesOrNo(question) : #询问是否
         time.sleep(1)
         print('Are you willing to '+question+' ?')
         
-        if getPlayerInput():
+        if getPlayerInputYoN():
             
             return True
         
@@ -88,55 +91,7 @@ def askYesOrNo(question) : #询问是否
             return False
         
         
-def printInterface(interface) : #打印界面
-    with open(cwd + sep + 'player_interface' + sep +'{}'.format(interface),'r') as current_interface :
-        print(current_interface.read())
-    return interface
 
 
-def getIndexChoice() : #主页选项
-        
-    while True :
-        
-        time.sleep(1)
-        print()
-        print('Make a choice .')
-        
-        try :
-            
-            print()
-            choice = int(input())
-            
-        except ValueError :
-            
-            time.sleep(1)
-            print()
-            print('You did not make a choose .')
-            continue
-        
-        else :
-        
-            #choice
-            if choice in {1, 2, 3} :
-            
-                #new 
-                if choice == 1 :
-                    game_new_world.newWorld()
-                    break
-                
-                #choose file
-                elif choice == 2 :
-                    pass
-                    break
-                
-                #exit
-                elif choice == 3 :
-                    sys.exit()
-                    break
-            
-            #not choice
-            else :
-                time.sleep(1)
-                print()
-                print('You did not make a choose .')
-                continue 
+
+

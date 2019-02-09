@@ -10,15 +10,16 @@ Created on 2019.02.08
 
 
 import os, sys, time
-import game_main_land_function as gml_f
-import game_save_file_function as gsf_f
 
 sep = os.path.sep
 cwd = os.getcwd()
-fwd = os.path.abspath(os.path.dirname(cwd) + sep + ".")
+
+sys.path.append(cwd + sep +'game_function_set' + sep)
 
 
-sys.path.append(fwd + sep)
+import game_main_land_function as gml_f
+import game_save_file_function as gsf_f
+
 
 import process_function as pcs_f
 
@@ -45,9 +46,10 @@ def newWorld() : #创建新世界
     
     #去除/\.
     while True :
+        
         print()
         name = input()
-        print(name)
+        
         if isIncludeSep(name) :
             break
         else :
@@ -63,8 +65,7 @@ def newWorld() : #创建新世界
     while True :
         
         #设置（重置）世界路径
-        world_path = (fwd + sep + 'save' + sep + '{}'.format(name))
-        print(world_path)
+        world_path = ('..' + sep + 'save' + sep + '{}'.format(name))
         
         
         #不存在

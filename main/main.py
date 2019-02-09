@@ -8,15 +8,13 @@ Created on 2019.02.03
 '''
 
 
-import process_function as p_f_
 import sys
-
-
-#define condition
-condition = None
-
+from process_function_set import process_interface_index_function as pcsii_f
 
 #main loop
 while True :
-    condition = p_f_.printInterface('index')
-    p_f_.getIndexChoice()
+    pcsii_f.printIndex()
+    pcsii_f.getIndexChoice()
+
+while True :
+    pass
