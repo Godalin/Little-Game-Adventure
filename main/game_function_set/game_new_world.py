@@ -23,8 +23,8 @@ sys.path.append(fwd + sep)
 import process_function as pcs_f
 
 
-def isIncludeSep(word) : #判断/\
-    if not (('/' in word) or ('\\' in word)) :
+def isIncludeSep(word) : #判断/\.
+    if not (('/' in word) or ('\\' in word) or ('.' in word)):
         return True
     else :
         return False
@@ -37,16 +37,17 @@ def newWorld() : #创建新世界
     
     #寒暄
     print()
-    print("Name can not include '\\'s or '/'s .")
+    print("Name can not include '.'s , '\\'s or '/'s .")
     time.sleep(1)
     print()
     print('Choose a world name .')
     
     
-    #去除/\
+    #去除/\.
     while True :
         print()
         name = input()
+        print(name)
         if isIncludeSep(name) :
             break
         else :
@@ -63,6 +64,7 @@ def newWorld() : #创建新世界
         
         #设置（重置）世界路径
         world_path = (fwd + sep + 'save' + sep + '{}'.format(name))
+        print(world_path)
         
         
         #不存在
