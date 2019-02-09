@@ -9,11 +9,18 @@ Created on 2019.02.02
 
 
 import time, os, sys
-import game_function as g_f
 
 
 #定义常量
 int_Ten = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+sep = os.path.sep
+cwd = os.getcwd()
+
+
+sys.path.append(cwd + sep + 'game_function_set' + sep)
+
+
+import game_new_world
 
 
 def getPlayerInput() :#获取玩家键入
@@ -82,15 +89,11 @@ def askYesOrNo(question) : #询问是否
         
         
 def printInterface(interface) : #打印界面
-    with open(os.getcwd()
-              +os.path.sep
-              +'player_interface'
-              +os.path.sep
-              +'{}'.format(interface),'r') as current_interface :
+    with open(cwd + sep + 'player_interface' + sep +'{}'.format(interface),'r') as current_interface :
         print(current_interface.read())
-        return interface
-        
-        
+    return interface
+
+
 def getIndexChoice() : #主页选项
         
     while True :
@@ -118,7 +121,7 @@ def getIndexChoice() : #主页选项
             
                 #new 
                 if choice == 1 :
-                    g_f.newWorld()
+                    game_new_world.newWorld()
                     break
                 
                 #choose file
@@ -131,15 +134,9 @@ def getIndexChoice() : #主页选项
                     sys.exit()
                     break
             
-                #not choice
+            #not choice
             else :
                 time.sleep(1)
                 print()
                 print('You did not make a choose .')
-                continue
-                
-
-def writeIntoFile(file_path) : #写入文件
-    pass
-    
-    
+                continue 

@@ -16,7 +16,7 @@ r_char_dir = {0:'p', 1:'$', 2:'F', 3:'%'}
 int_Ten = {0,1,2,3,4,5,6,7,8,9}
 
          
-class ChessBoard :
+class MainLandBlock :
     
     
     #add the LGA place for players to start
@@ -29,43 +29,43 @@ class ChessBoard :
     #类方法
     
     
-    def __init__(self) : #自建
+    def __init__(self) : #构造
         
         #定义表里
-        self.__icb = []
-        self.__ocb = []
+        self.__imlb = []
+        self.__omlb = []
         
         #初始化表里
         
         #表
         for line in range(10) :
-            self.__ocb.append([])
+            self.__omlb.append([])
             for row in range(10) :
-                self.__ocb[line].append(' ')
+                self.__omlb[line].append(' ')
         #里
         for line in range(10) :
-            self.__icb.append([])
+            self.__imlb.append([])
             for row in range(10) :
-                self.__icb[line].append(' ')
+                self.__imlb[line].append(' ')
         
         
-    def getNewBoard(self) : #随机新建
+    def getNewBlock(self) : #随机新建
         
         #插入相异里元素
         for line in range(10) :
             for row in range(10) :
                 r_sp = random.randint(0, 3)
                 r_char = r_char_dir[r_sp]
-                self.__icb[line][row] = r_char
+                self.__imlb[line][row] = r_char
             
             
-    def printBoard(self, io) : #打印版面
+    def printBlock(self, io) : #打印版面
         
         #选择表里
         if io == 'o' :
-            cb = self.__ocb
+            mlb = self.__omlb
         elif io == 'i' :
-            cb = self.__icb
+            mlb = self.__imlb
         
         #通用打印    
         print()
@@ -75,7 +75,7 @@ class ChessBoard :
         for row in range(10) :
             print('|'+str(row)+'|',end = '')
             for line in range(10) :
-                print(cb[line][row]+'|',end = '')
+                print(mlb[line][row]+'|',end = '')
             print(str(row)+'|')
             print('|-+-+-+-+-+-+-+-+-+-+-+-|')
         print('| |0|1|2|3|4|5|6|7|8|9| |')
@@ -83,24 +83,22 @@ class ChessBoard :
         print()
 
         
-    def getChessBoardData(self) : #获取版面数据
+    def getBlockData(self) : #获取版面数据
         
-        #表
-        ocb = ''
+        #表数据
+        omlbd = ''
         for row in range(10) :
             for line in range(10) :
-                ocb += self.__ocb[line][row]
-            ocb += '\n'
+                omlbd += self.__omlb[line][row]
+            omlbd += '\n'
                 
-        #里
-        icb = ''
+        #里数据
+        imlbd = ''
         for row in range(10) :
             for line in range(10) :
-                icb += self.__icb[line][row]
-            icb += '\n'
+                imlbd += self.__imlb[line][row]
+            imlbd += '\n'
             
-        return {
-            'i':icb[:], 
-            'o':ocb[:]
-            }
-            
+        return {'i':imlbd[:], 'o':omlbd[:]}
+    
+    

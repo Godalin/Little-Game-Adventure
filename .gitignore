@@ -1,9 +1,11 @@
+#python
 **/__pycache__/
 
-/saves/
-
+#eclipse
 /.metadata/
-
 /main/.settings/
 /main/.project
 /main/.pydevproject
+
+#game save
+/save/
