@@ -10,6 +10,7 @@ Created on 2019.02.08
 
 
 import os, sys, time
+from _ast import Break
 
 sep = os.path.sep
 cwd = os.path.split(os.path.realpath(__file__))[0]
@@ -30,6 +31,13 @@ def isIncludeSep(word) : #判断/\.
     else :
         return False
     
+    
+def isChinese(word):
+    for ch in word:
+        if not ('\u4e00' <= ch <= '\u9fff') :
+            return True
+    return False
+    
 
 def newWorld() : #创建新世界
     
@@ -39,7 +47,6 @@ def newWorld() : #创建新世界
     #寒暄
     print()
     print("Name can not include '.'s , '\\'s or '/'s .")
-    time.sleep(1)
     print()
     print('Choose a world name .')
     
@@ -55,7 +62,6 @@ def newWorld() : #创建新世界
         else :
             print()
             print('Name is not available .')
-            time.sleep(1)
             print()
             print('Choose another name .')
             continue

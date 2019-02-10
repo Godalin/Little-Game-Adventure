@@ -13,13 +13,14 @@ import time, os, sys
 sep = os.path.sep
 cwd = os.path.split(os.path.realpath(__file__))[0]
 fwd = os.path.abspath(os.path.dirname(cwd) + sep + '.')
-
 interface_path = cwd + sep + 'player_interface' + sep
 index = interface_path + 'index'
+
 
 sys.path.append(fwd + sep + 'game_function_set' + sep)
 
 import game_new_world
+
 
 sys.path.append(cwd + sep)
 

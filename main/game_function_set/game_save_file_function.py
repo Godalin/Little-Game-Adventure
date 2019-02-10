@@ -17,9 +17,8 @@ cwd = os.path.split(os.path.realpath(__file__))[0]
 ffwd = os.path.abspath(os.path.dirname(cwd) + sep +'..')
 
 
-#定义save路径
+#指定save路径
 save_path = ffwd + sep + 'save'
-print(save_path)
 
 
 def setSave() :
