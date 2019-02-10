@@ -19,6 +19,7 @@ ffwd = os.path.abspath(os.path.dirname(cwd) + sep +'..')
 
 #定义save路径
 save_path = ffwd + sep + 'save'
+print(save_path)
 
 
 def setSave() :
@@ -39,4 +40,7 @@ def setSave() :
     else :
         #否，不创建
         pass
+    
+    #返回save路径
+    return save_path
     

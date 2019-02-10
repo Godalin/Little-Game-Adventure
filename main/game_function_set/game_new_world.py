@@ -34,7 +34,7 @@ def isIncludeSep(word) : #判断/\.
 def newWorld() : #创建新世界
     
     #save文件夹有关
-    gsf_f.setSave()
+    save_path = gsf_f.setSave()
     
     #寒暄
     print()
@@ -65,7 +65,7 @@ def newWorld() : #创建新世界
     while True :
         
         #设置（重置）世界路径
-        world_path = ('.' + sep + 'save' + sep + '{}'.format(name))
+        world_path = (save_path + sep + '{}'.format(name))
         
         
         #不存在
