@@ -1,8 +1,8 @@
-#***Little Game Adventure***
+# ***Little Game Adventure***
 
-##This is an open-world game by Godalin .
+## This is an open-world game by Godalin .
 
-##Created on Feb.03.2019 .
+## Created on Feb.03.2019 .
 
 
 |choice  |use          |
