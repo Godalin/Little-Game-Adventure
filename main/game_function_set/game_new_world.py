@@ -10,18 +10,19 @@ Created on 2019.02.08
 
 
 import os, sys, time
+from _ast import Break
 
 sep = os.path.sep
-cwd = os.getcwd()
+cwd = os.path.split(os.path.realpath(__file__))[0]
+fwd = os.path.abspath(os.path.dirname(cwd) + sep + '.')
 
-sys.path.append(cwd + sep +'game_function_set' + sep)
+sys.path.append(fwd)
+import process_function as pcs_f
 
-
+sys.path.append(cwd)
 import game_main_land_function as gml_f
 import game_save_file_function as gsf_f
 
-
-import process_function as pcs_f
 
 
 def isIncludeSep(word) : #判断/\.
@@ -30,16 +31,22 @@ def isIncludeSep(word) : #判断/\.
     else :
         return False
     
+    
+def isChinese(word):
+    for ch in word:
+        if not ('\u4e00' <= ch <= '\u9fff') :
+            return True
+    return False
+    
 
 def newWorld() : #创建新世界
     
     #save文件夹有关
-    gsf_f.setSave()
+    save_path = gsf_f.setSave()
     
     #寒暄
     print()
     print("Name can not include '.'s , '\\'s or '/'s .")
-    time.sleep(1)
     print()
     print('Choose a world name .')
     
@@ -55,7 +62,6 @@ def newWorld() : #创建新世界
         else :
             print()
             print('Name is not available .')
-            time.sleep(1)
             print()
             print('Choose another name .')
             continue
@@ -65,7 +71,7 @@ def newWorld() : #创建新世界
     while True :
         
         #设置（重置）世界路径
-        world_path = ('..' + sep + 'save' + sep + '{}'.format(name))
+        world_path = (save_path + sep + '{}'.format(name))
         
         
         #不存在
